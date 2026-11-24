@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>حذاء العمل INGCO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,9 +16,9 @@
 --bg:light-dark(#fffaf0,#16171a);--card:light-dark(#ffffff,#202227);--ink:light-dark(#1b1c1f,#f4f1ea);--mute:light-dark(#5c5a55,#b3afa6);
 --y:#f6b100;--yd:#d99a00;--char:#1f2125;--tan:#b5703f;--line:light-dark(#eadfcb,#33363c);--ok:#1e8e4e;--bad:#c4362b}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
-*{box-sizing:border-box;min-width:0}
+*{box-sizing:border-box;min-width:0;touch-action:manipulation}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth;scroll-padding-top:20px}
+html{touch-action:manipulation;-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:20px}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Tajawal,"Segoe UI",Tahoma,sans-serif;overflow-x:clip}
 h1,h2,h3{font-family:Alexandria,Tajawal,sans-serif;font-weight:800;line-height:1.1;margin:0;text-wrap:balance}
 h2{font-size:clamp(26px,4vw,40px);margin-bottom:10px}
@@ -30,6 +30,12 @@ img,video{display:block;max-width:100%}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border:0;border-radius:12px;background:var(--y);color:#1b1c1f;font:800 19px Alexandria,Tajawal,sans-serif;text-decoration:none;cursor:pointer;box-shadow:0 5px 0 var(--yd);transition:transform .12s}
 .btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--yd)}
 .btn:focus-visible,input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid #2b6cff;outline-offset:2px}
+.btn.dark{background:var(--char);color:var(--y);box-shadow:0 5px 0 #000}
+.btn.dark:active{box-shadow:0 2px 0 #000}
+.deal{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#fff6dc;border:2px dashed var(--y);border-radius:12px;padding:12px 16px;margin-bottom:18px}
+.deal .dnow{font:800 30px Alexandria,sans-serif;white-space:nowrap}
+.deal .dold{text-decoration:line-through;color:#7a766d;font-size:18px;white-space:nowrap;margin-inline-start:8px}
+.deal .dtag{background:var(--bad);color:#fff;font-weight:700;font-size:15px;padding:5px 12px;border-radius:999px;white-space:nowrap}
 .btn.wa{background:#25d366;box-shadow:0 5px 0 #1a9e4b;color:#fff}
 
 /* top bar */
@@ -140,6 +146,11 @@ footer a{color:var(--y)}
  .hex{width:86px;height:96px;font-size:13px}.hex b{font-size:24px}
  .strip div{font-size:15px}
 }
+.fab{position:fixed;bottom:20px;inset-inline-end:20px;z-index:10;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:bottom .25s}
+.fab:focus-visible{outline:3px solid #2b6cff;outline-offset:3px}
+.fab span{position:absolute;inset-inline-end:70px;white-space:nowrap;background:#fff;color:#1b1c1f;font-weight:700;font-size:14px;padding:6px 12px;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+body.sticky-on .fab{bottom:96px}
+@media(max-width:600px){.fab span{display:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -153,12 +164,7 @@ footer a{color:var(--y)}
    <span class="brand">INGCO · SSH02SB</span>
    <h1>حذاء السلامة INGCO<br>حماية حقيقية لرجليك فالخدمة</h1>
    <p class="lead">مقدمة من الفولاذ، جلد شامواه متين، ونعل مطاطي كيمتص الصدمات. مناسب للورش، البناء، الميكانيك والمخازن.</p>
-   <div class="price" id="priceBox" hidden>
-    <span class="now" id="pNow"></span>
-    <span class="old" id="pOld" hidden></span>
-    <span class="tag" id="pTag" hidden></span>
-   </div>
-   <a class="btn" href="#order">اطلب الآن — الدفع عند الاستلام</a>
+   <a class="btn dark" href="#order">اطلب الآن — الدفع عند الاستلام</a>
    <ul class="ticks">
     <li><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#1f2125"/><path d="M7 12.5l3.2 3L17 9" stroke="#f6b100" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>منتج أصلي INGCO</li>
     <li><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#1f2125"/><path d="M7 12.5l3.2 3L17 9" stroke="#f6b100" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>جميع المقاسات من 39 حتى 46</li>
@@ -213,16 +219,6 @@ footer a{color:var(--y)}
  </div>
 </section>
 
-<section class="band real">
- <div class="wrap">
-  <div class="txt">
-   <h2>السلعة عندنا فالمحل</h2>
-   <p class="sub">صور حقيقية من المخزون ديالنا: العلب الأصلية والبطاقة ديال INGCO. كنرسلو ليك نفس السلعة.</p>
-  </div>
-  <img src="./boxes.jpg" alt="علب أحذية INGCO الأصلية في المحل">
-  <img src="./tag.jpg" alt="البطاقة الأصلية لأحذية السلامة INGCO">
- </div>
-</section>
 
 <section class="band order" id="order">
  <div class="wrap">
@@ -238,6 +234,7 @@ footer a{color:var(--y)}
 
   <div>
    <form id="f" novalidate>
+    <div class="deal" id="deal" hidden><div><span class="dnow" id="dNow"></span><span class="dold" id="dOld" hidden></span></div><span class="dtag" id="dTag" hidden></span></div>
     <label>المقاس</label>
     <div class="sizes" id="sizes" role="group" aria-label="اختر المقاس"></div>
     <div class="msg" id="mSize"></div>
@@ -287,15 +284,17 @@ footer a{color:var(--y)}
  <p>INGCO علامة تجارية لأصحابها. حنا كنبيعو المنتج الأصلي.</p>
 </footer>
 
+<a class="fab" href="https://wa.me/212651519074?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B3%D9%88%D9%84%20%D8%B9%D9%84%D9%89%20%D8%AD%D8%B0%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%20INGCO" target="_blank" rel="noopener" aria-label="تواصل معنا فواتساب"><span>سولنا فواتساب</span><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+
 <div class="sticky" id="sticky"><a class="btn" href="#order">اطلب الآن — الدفع عند الاستلام</a></div>
 
 <script>
 {
 /* ===== عدّل هنا ===== */
 const CONFIG={
- price:null,        // ثمن البيع بالدرهم، مثلا 249
- oldPrice:null,     // الثمن القديم (اختياري)، مثلا 350
- whatsapp:""        // رقم الواتساب بصيغة دولية بلا +، مثلا 2126XXXXXXXX
+ price:299,        // ثمن البيع بالدرهم، مثلا 249
+ oldPrice:399,     // الثمن القديم (اختياري)، مثلا 350
+ whatsapp:"212651519074"        // رقم الواتساب بصيغة دولية بلا +، مثلا 2126XXXXXXXX
 };
 /* ==================== */
 
@@ -303,10 +302,10 @@ const $=id=>document.getElementById(id);
 const dh=n=>n.toLocaleString('fr-MA')+' درهم';
 
 if(CONFIG.price){
- $('priceBox').hidden=false;$('pNow').textContent=dh(CONFIG.price);
+ $('deal').hidden=false;$('dNow').textContent=dh(CONFIG.price);
  if(CONFIG.oldPrice&&CONFIG.oldPrice>CONFIG.price){
-  $('pOld').hidden=false;$('pOld').textContent=dh(CONFIG.oldPrice);
-  $('pTag').hidden=false;$('pTag').textContent='تخفيض '+Math.round((1-CONFIG.price/CONFIG.oldPrice)*100)+'%';
+  $('dOld').hidden=false;$('dOld').textContent=dh(CONFIG.oldPrice);
+  $('dTag').hidden=false;$('dTag').textContent='تخفيض '+Math.round((1-CONFIG.price/CONFIG.oldPrice)*100)+'%';
  }
  $('totalRow').hidden=false;
 }
@@ -386,7 +385,7 @@ $('faq').innerHTML=faq.map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p>
 
 /* sticky CTA: show after hero, hide over the form */
 const st=$('sticky');let pastHero=false,atOrder=false;
-const show=()=>st.classList.toggle('on',pastHero&&!atOrder);
+const show=()=>{const on=pastHero&&!atOrder&&getComputedStyle(st).display!=='none';st.classList.toggle('on',on);document.body.classList.toggle('sticky-on',on)};
 const io1=new IntersectionObserver(([en])=>{pastHero=!en.isIntersecting;show()});io1.observe(document.querySelector('.hero'));
 const io2=new IntersectionObserver(([en])=>{atOrder=en.isIntersecting;show()},{threshold:.15});io2.observe($('order'));
 }
