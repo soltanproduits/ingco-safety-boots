@@ -166,7 +166,7 @@ footer a{color:var(--y)}
    </ul>
   </div>
   <div class="shot">
-   <img src="img/hero.jpg" alt="حذاء السلامة INGCO ملبوس في ورشة" width="1000" height="1000" fetchpriority="high">
+   <img src="./hero.jpg" alt="حذاء السلامة INGCO ملبوس في ورشة" width="1000" height="1000" fetchpriority="high">
    <div class="hex"><span>مقدمة<b>فولاذ</b></span></div>
   </div>
  </div>
@@ -185,7 +185,7 @@ footer a{color:var(--y)}
 <section class="band vid">
  <div class="wrap">
   <div class="vbox">
-   <video src="video.mp4" poster="img/poster.jpg" controls playsinline preload="metadata"></video>
+   <video src="video.mp4" poster="./poster.jpg" controls playsinline preload="metadata"></video>
   </div>
   <div>
    <h2>شوف الحذاء فالتجربة</h2>
@@ -219,8 +219,8 @@ footer a{color:var(--y)}
    <h2>السلعة عندنا فالمحل</h2>
    <p class="sub">صور حقيقية من المخزون ديالنا: العلب الأصلية والبطاقة ديال INGCO. كنرسلو ليك نفس السلعة.</p>
   </div>
-  <img src="img/boxes.jpg" alt="علب أحذية INGCO الأصلية في المحل">
-  <img src="img/tag.jpg" alt="البطاقة الأصلية لأحذية السلامة INGCO">
+  <img src="./boxes.jpg" alt="علب أحذية INGCO الأصلية في المحل">
+  <img src="./tag.jpg" alt="البطاقة الأصلية لأحذية السلامة INGCO">
  </div>
 </section>
 
@@ -331,7 +331,7 @@ $('feats').innerHTML=feats.map(([i,t,d])=>`<div class="f"><div class="ic">${icon
 
 const pics=[['pair','الحذاء من الجنب',1],['top','الحذاء من الفوق',1],['side','فردة وحدة',1],['features','مزايا الحذاء ومعيار SB',1],['hero','الحذاء ملبوس',0]];
 const row=$('row');
-row.innerHTML=pics.map(([f,a,c])=>`<figure class="${c?'c':''}"><img src="img/${f}.jpg" alt="${a}"></figure>`).join('');
+row.innerHTML=pics.map(([f,a,c])=>`<figure class="${c?'c':''}"><img src="./${f}.jpg" alt="${a}"></figure>`).join('');
 const step=d=>{const w=row.firstElementChild.getBoundingClientRect().width+14;row.scrollBy({left:d*w,behavior:'smooth'})};
 $('prev').onclick=()=>step(1);$('next').onclick=()=>step(-1);
 row.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}if(e.key==='ArrowRight'){e.preventDefault();step(1)}});
